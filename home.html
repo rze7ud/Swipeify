@@ -26,7 +26,7 @@
   <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-2" href="#">Swipeify</a>
+        <a class="navbar-brand ml-2" href="./home.html">Swipeify</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -41,98 +41,102 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
-            <li class="nav-item"><button class="btn" type="submit">Sync Library<img class="img-responsive center-block" src="images/refresh.png" alt="Refresh Icon" style="margin-left: 10px; height: 25px;"></a></li>
+            <li class="nav-item"><button class="btn" type="submit">Sync Library<img class="img-responsive center-block" src="images/refresh.png" alt="Refresh Icon" style="margin-left: 10px; height: 25px;"></button></li>
           </ul>
         </div>
       </nav>
     </header>
 
     <main style="flex: 1;">
-      <section class="row">
-        <div class="col-3" style="margin-left: auto;">
-          <h1>Swipe Through Your Favorite Songs</h1>
-        </div>
-        <div style="margin-right: auto;">
-          <button class="btn" style="margin-bottom: 20px; border-radius: 20px;">
-            <p class="btn-top-p">Library</p>
-            <p class="btn-bottom-p">Swipe from your library</p>
-          </button><br>
-          <button class="btn" style="width: 18rem; border-radius: 20px;">
-            <p class="btn-top-p">Playlist/Album</p>
-            <p class="btn-bottom-p">Swipe from other's playlist/album</p>
-          </button>
-        </div>
+      <section class="row" style="display: block; text-align: center;">
+        <h1 style="margin: 40px;">Swipe Through Your Favorite Songs</h1>
+        <a class="btn btn-success" href="./swipelib.html" style="border-radius: 20px;">
+          <p class="btn-top-p" style="font-size: 40px; font-weight: 800; margin-bottom: 0px;">Library</p>
+          <p class="btn-bottom-p" style="font-size: 12px; margin-bottom: 5px;">Swipe from your library</p>
+        </a><br>
+        <a class="btn btn-warning" href="./search.html" style="border-radius: 20px; margin-top: 20px;">
+          <p class="btn-top-p" style="font-size: 40px; font-weight: 800; margin-bottom: 0px;">Playlist/Album</p>
+          <p class="btn-bottom-p" style="font-size: 12px; margin-bottom: 5px;">Swipe from other's playlists/albums</p>
+        </a>
       </section>
 
       <section>
         <h2>Continue Swiping</h2>
         <div class="d-flex flex-row flex-nowrap overflow-auto" style="overflow-x: scroll;">
-            <div class="card card-block mx-2 mb-3" style="max-width: 400px; min-width: 400px;">
-                <img src="./images/temporary.jpg" class="card-img-top" alt="...">
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+                <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
                 <div class="card-body">
-                  <h5 class="card-title">Example 1</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title text-dark">Session_Name</h5>
+                  <p class="card-text" style="font-size: 14px;">Session Description</p>
+                  <a href="#" class="btn btn-primary" style="font-size: 14px;">Continue Session</a>
                 </div>
             </div>
-            <div class="card card-block mx-2 mb-3" style="max-width: 400px; min-width: 400px;">
-                <img src="./images/temporary.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Example 2</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+              <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
+              <div class="card-body">
+                <h5 class="card-title text-dark">Session_Name</h5>
+                <p class="card-text" style="font-size: 14px;">Session Description</p>
+                <a href="#" class="btn btn-primary" style="font-size: 14px;">Continue Session</a>
+              </div>
+          </div>
         </div>
       </section>
 
       <section>
         <h2>Previously Swiped</h2>
         <div class="d-flex flex-row flex-nowrap overflow-auto" style="overflow-x: scroll;">
-            <div class="card card-block mx-2 mb-3" style="max-width: 400px; min-width: 400px;">
-                <img src="./images/temporary.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Example 1</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+              <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
+              <div class="card-body">
+                <h5 class="card-title text-dark">Playlist_Name</h5>
+                <p class="card-text" style="font-size: 14px;">Playlist Description</p>
+                <a href="#" class="btn btn-primary" style="font-size: 14px;">Continue Session</a>
+              </div>
             </div>
-            <div class="card card-block mx-2 mb-3" style="max-width: 400px; min-width: 400px;">
-                <img src="./images/temporary.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Example 2</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+              <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
+              <div class="card-body">
+                <h5 class="card-title text-dark">Playlist_Name</h5>
+                <p class="card-text" style="font-size: 14px;">Playlist Description</p>
+                <a href="#" class="btn btn-primary" style="font-size: 14px;">Continue Session</a>
+              </div>
             </div>
-            <div class="card card-block mx-2 mb-3" style="max-width: 400px; min-width: 400px;">
-                <img src="./images/temporary.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Example 3</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+              <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
+              <div class="card-body">
+                <h5 class="card-title text-dark">Playlist_Name</h5>
+                <p class="card-text" style="font-size: 14px;">Playlist Description</p>
+                <a href="#" class="btn btn-primary" style="font-size: 14px;">Continue Session</a>
+              </div>
             </div>
-            <div class="card card-block mx-2 mb-3" style="max-width: 400px; min-width: 400px;">
-                <img src="./images/temporary.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Example 4</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+              <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
+              <div class="card-body">
+                <h5 class="card-title text-dark">Playlist_Name</h5>
+                <p class="card-text" style="font-size: 14px;">Playlist Description</p>
+                <a href="#" class="btn btn-primary" style="font-size: 14px;">Continue Session</a>
+              </div>
             </div>
-            <div class="card card-block mx-2 mb-3" style="max-width: 400px; min-width: 400px;">
-                <img src="./images/temporary.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Example 5</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+              <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
+              <div class="card-body">
+                <h5 class="card-title text-dark">Playlist_Name</h5>
+                <p class="card-text" style="font-size: 14px;">Playlist Description</p>
+                <a href="#" class="btn btn-primary" href="#" style="font-size: 14px;">Continue Session</a>
+              </div>
+            </div>
+            <div class="card card-block mx-2 mb-3" style="max-width: 300px; min-width: 300px;">
+              <img src="./images/temporary.jpg" class="card-img-top" alt="temporary">
+              <div class="card-body">
+                <h5 class="card-title text-dark">Playlist_Name</h5>
+                <p class="card-text" style="font-size: 14px;">Playlist Description</p>
+                <a href="#" class="btn btn-primary" href="#" style="font-size: 14px;">Continue Session</a>
+              </div>
             </div>
         </div>
       </section>
