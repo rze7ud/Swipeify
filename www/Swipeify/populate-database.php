@@ -3,7 +3,6 @@
     $port = "5432";
     $database = "rze7ud";
     $user = "rze7ud";
-    $password = "Gc-Mys2-QKHm";
 
     $dbHandle = pg_connect("host=$host port=$port dbname=$database user=$user password=$password");
 
