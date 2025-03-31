@@ -19,7 +19,7 @@
   <body>
   <?=$message?>
     <div class="container">
-      <form>
+      <form action="?command=login" method="post">
         <div class="mb-3">
           <a href="https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=YOUR_REDIRECT_URI&scope=user-read-private%20user-read-email
           " class="btn btn-success">
@@ -40,7 +40,7 @@
 
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="passsword">
+          <input type="password" class="form-control" id="password" name="password">
         </div>
 
         <div class="mb-3 form-check">
