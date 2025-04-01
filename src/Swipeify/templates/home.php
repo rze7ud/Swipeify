@@ -66,6 +66,28 @@
       </section>
 
       <section>
+        <h2>Your Saved Songs</h>
+          <table class="table table-bordered table-dark">
+            <thead>
+              <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($songs as $song): ?>
+                <tr>
+                  <td><?php echo htmlspecialchars($song['song_name']); ?></td>
+                  <td><?php echo htmlspecialchars($song['artist_name']); ?></td>
+                  <td><?php echo htmlspecialchars($song['album_name']); ?></td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+      </section>
+
+      <section>
         <form class="p-4 d-flex flex-column align-items-center" style="border: 2px solid black; text-align: center; width: 300px; margin: auto;" 
               action="?command=addsong" method="post">
         <h1>Add Song</h1>
@@ -96,7 +118,7 @@
         </form>
       </section>
 
-
+      <!--
       <section>
         <h2>Continue Swiping</h2>
         <div class="d-flex flex-row flex-nowrap overflow-auto" style="overflow-x: scroll;">
@@ -172,6 +194,7 @@
             </div>
         </div>
       </section>
+      -->
     </main>
 
     <footer class="bg-dark text-white text-center py-3">

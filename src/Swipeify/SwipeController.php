@@ -46,6 +46,7 @@ class SwipeController {
         break;
       case "addsong":
         $this->addSong();
+        break;
       case "home":
         $this->showHome();
         break;
@@ -54,9 +55,6 @@ class SwipeController {
         break;
       case "search":
         $this->showSearch();
-        break;
-      case "searching":
-        $this->getSearch();
         break;
       case "logout":
         $this->logout();
@@ -125,18 +123,46 @@ class SwipeController {
 
   public function addSong() {
     if (isset($_POST["songname"]) && isset($_POST["songid"]) && isset($_POST["artist"]) && isset($_POST["album"])) {
-      $this->db->query("INSERT INTO tracks (spotify_id, name) VALUES ($1, $2)", $_POST["songid"], $_POST["songname"]);
-      $result = $this->db->query("select id from swipeify_users where email = $1 LIMIT 1;", $_SESSION["email"]);
-      if ($result) {
-        $_SESSION["curuserid"] = $result[0]["id"];
+      $songid = trim($_POST["songid"]);
+      if (preg_match('/^[a-zA-Z0-9]+$/', $songid) && isset($_POST["songid"])) {
+        $this->db->query("INSERT INTO tracks (spotify_id, name) VALUES ($1, $2)", $_POST["songid"], $_POST["songname"]);
+        $result = $this->db->query("select id from swipeify_users where email = $1 LIMIT 1;", $_SESSION["email"]);
+        if ($result) {
+          $_SESSION["curuserid"] = $result[0]["id"];
+        }
+        $this->db->query("INSERT INTO user_tracks (user_id, track_id) VALUES ($1, $2)", $_SESSION["curuserid"], $_POST["songid"]);
+        echo "Your Song Has Been Added!"; 
+      } else {
+        echo "Invalid Characters!";
       }
-      $this->db->query("INSERT INTO user_tracks (user_id, track_id) VALUES ($1, $2)", $_SESSION["curuserid"], $_POST["songid"]);
-      echo "Your song has been added!";
+    } else {
+      $message = "<p class='alert alert-danger'>Missing value!</p>"; 
     }
+    $this->showHome(message: $message);
   }
 
+  public function showSongDetail() {
+    $id = $_GET["id"] ?? null;
+  
+    if ($id && preg_match("/^[a-zA-Z0-9]+$/", $id)) {
+      $result = $this->db->query("SELECT * FROM tracks WHERE spotify_id = $1", $id);
+  
+      if ($result) {
+        $song = $result[0];
+        include("/path/to/songdetail.php");
+      } else {
+        echo "Song not found.";
+      }
+    } else {
+      echo "Invalid or missing song ID.";
+    }
+  }
+  
   public function getSongs() {
-    $_SESSION["curuserid"] = $this->db->query("select id from swipeify_users where email = $1;", $_SESSION["email"]);
+    $result = $this->db->query("select id from swipeify_users where email = $1 LIMIT 1;", $_SESSION["email"]);
+    if ($result) {
+      $_SESSION["curuserid"] = $result[0]["id"];
+    }
     $results = $this->db->query("SELECT 
         tracks.name AS song_name, 
         artists.name AS artist_name, 
@@ -148,7 +174,6 @@ class SwipeController {
     JOIN artist_albums ON albums.spotify_id = artist_albums.album_id
     JOIN artists ON artist_albums.artist_id = artists.spotify_id
     WHERE user_tracks.user_id = $1;", $_SESSION["curuserid"]);
-
     return $results;
   }
 
@@ -168,7 +193,9 @@ class SwipeController {
 
   public function showHome($message = "") {
     // include("/opt/src/Swipeify/templates/home.html");
+    $songs = $this->getSongs();
     include("/students/rze7ud/students/rze7ud/private/Swipeify/templates/home.php");
+    echo json_encode($songs);
   }
 
   public function showLogin($message = "") {

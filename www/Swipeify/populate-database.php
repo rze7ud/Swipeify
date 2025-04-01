@@ -96,9 +96,9 @@
     $res  = pg_execute($dbHandle, "insert_album_track", ['1uyf3l2d4XYwiEqAb7t7fX', '1ExfPZEiahqhLyajhybFeS']); // Doo-Wops & Hooligans & The Lazy Song
 
     // User_Tracks (Users' saved tracks)
-    // $res  = pg_prepare($dbHandle, "insert_user_track", "INSERT INTO user_tracks (user_id, track_id) VALUES ($1, $2);");
-    // $res  = pg_execute($dbHandle, "insert_user_track", [1, '2e3Ea0o24lReQFR4FA7yXH']); // Billy & Love Yourz
-    // $res  = pg_execute($dbHandle, "insert_user_track", [2, '2plbrEY59IikOBgBGLjaoe']); // Bob & Die With a Smile
-    // $res  = pg_execute($dbHandle, "insert_user_track", [3, '1ExfPZEiahqhLyajhybFeS']); // Joe & The Lazy Song
+    $res  = pg_prepare($dbHandle, "insert_user_track", "INSERT INTO user_tracks (user_id, track_id) VALUES ($1, $2);");
+    $res  = pg_execute($dbHandle, "insert_user_track", [1, '2e3Ea0o24lReQFR4FA7yXH']); // Billy & Love Yourz
+    $res  = pg_execute($dbHandle, "insert_user_track", [1, '2plbrEY59IikOBgBGLjaoe']); // Bob & Die With a Smile
+    $res  = pg_execute($dbHandle, "insert_user_track", [1, '1ExfPZEiahqhLyajhybFeS']); // Joe & The Lazy Song
 
     echo "Done!";
