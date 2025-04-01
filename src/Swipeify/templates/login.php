@@ -29,8 +29,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" name="fullname">
+          <label for="fullname" class="form-label">Name</label>
+          <input type="text" class="form-control" id="fullname" name="fullname">
         </div>
 
         <div class="mb-3">

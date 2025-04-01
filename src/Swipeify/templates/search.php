@@ -25,7 +25,7 @@
   <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-2" href="./home.html">Swipeify</a>
+        <a class="navbar-brand ml-2" href="index.php?command=home">Swipeify</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -40,8 +40,8 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?command=home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?command=welcome">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
@@ -55,12 +55,14 @@
         <h1 style="margin-left: auto; margin-right: auto;">Search for Album/Playlist</h1>
       </section>
 
-      <form class="form-inline my-2 my-lg-0">
-          <div style="margin-left: auto; margin-right: auto;">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 400px;">
-              <a class="btn" href="./swipePlaylist.html" style="background-color: white;"><img class="img-responsive center-block" src="images/search.png" alt="Magnifying Glass" style="height: 20px;"></a>
-          </div>
-      </form>
+      <form class="form-inline my-2 my-lg-0" action="?command=searching" method="GET">
+        <div style="margin-left: auto; margin-right: auto;">
+            <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search" style="width: 400px;">
+            <button type="submit" class="btn" style="background-color: white;">
+                <img class="img-responsive center-block" src="images/search.png" alt="Magnifying Glass" style="height: 20px;">
+            </button>
+        </div>
+    </form>
     </main>
 
     <footer class="bg-dark text-white text-center py-3">

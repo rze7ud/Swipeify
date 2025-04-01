@@ -25,7 +25,7 @@
   <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-2" href="./home.html">Swipeify</a>
+        <a class="navbar-brand ml-2" href="index.php?command=home">Swipeify</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -40,11 +40,11 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?command=home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?command=welcome">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="./login.html">Log Out</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php?command=logout">Log Out</a></li>
             <li class="nav-item"><button class="btn" type="submit">Sync Library<img class="img-responsive center-block" src="images/refresh.png" alt="Refresh Icon" style="margin-left: 10px; height: 25px;"></button></li>
           </ul>
         </div>
@@ -53,6 +53,7 @@
 
     <main style="flex: 1;">
       <section class="row" style="display: block; text-align: center;">
+      <h2 style="margin: 40px;"><?php echo "Welcome, " . htmlspecialchars($_SESSION["name"]) . "!"; ?></h2>
         <h1 style="margin: 40px;">Swipe Through Your Favorite Songs</h1>
         <a class="btn btn-success" href="index.php?command=swipelibrary" style="border-radius: 20px;">
           <p class="btn-top-p" style="font-size: 40px; font-weight: 800; margin-bottom: 0px;">Library</p>
@@ -63,6 +64,38 @@
           <p class="btn-bottom-p" style="font-size: 12px; margin-bottom: 5px;">Swipe from other's playlists/albums</p>
         </a>
       </section>
+
+      <section>
+        <form class="p-4 d-flex flex-column align-items-center" style="border: 2px solid black; text-align: center; width: 300px; margin: auto;" 
+              action="?command=addsong" method="post">
+        <h1>Add Song</h1>
+              
+          <div class="mb-3 w-100">
+            <label style="color: white;" for="songname" class="form-label">Song Name</label>
+            <input style="width: 100%;" type="text" class="form-control" id="songname" name="songname">
+          </div>
+
+          <div class="mb-3 w-100">
+            <label style="color: white;" for="songid" class="form-label">Spotify Song ID</label>
+            <input style="width: 100%;" type="text" class="form-control" id="songid" name="songid">
+          </div>
+
+          <div class="mb-3 w-100">
+            <label style="color: white;" for="artist" class="form-label">Artist</label>
+            <input style="width: 100%;" type="text" class="form-control" id="artist" name="artist">
+          </div>
+
+          <div class="mb-3 w-100">
+            <label style="color: white;" for="album" class="form-label">Album</label>
+            <input style="width: 100%;" type="text" class="form-control" id="album" name="album">
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </section>
+
 
       <section>
         <h2>Continue Swiping</h2>

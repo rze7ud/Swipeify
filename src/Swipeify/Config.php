@@ -4,7 +4,7 @@ class Config {
         "host" => "localhost",
         "port" => 5432,
         "user" => "rze7ud",
-        "pass" => "",
+        "pass" => "Gc-Mys2-QKHm",
         "database" => "rze7ud"
     ];
 }
