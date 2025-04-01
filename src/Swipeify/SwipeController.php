@@ -84,12 +84,7 @@ class SwipeController {
         $_SESSION["email"] = $_POST["email"];
         
         // https://www.w3schools.com/php/php_cookies.asp
-
-        $name = $_POST["fullname"];
-        if (!empty($name)) {
-            $_SESSION["name"] = $name;
-            setcookie("user_name", $name, time() + (86400 * 30), "/");
-        }
+        setcookie("user_name", $_SESSION["name"], time() + (86400 * 30), "/");
 
         header("Location: ?command=home");
         return;
@@ -100,11 +95,7 @@ class SwipeController {
           $_SESSION["name"] = $_POST["fullname"];
           $_SESSION["email"] = $_POST["email"];
 
-          $name =$_POST["fullname"];
-          if (!empty($name)) {
-              $_SESSION["name"] = $name;
-              setcookie("user_name", $name, time() + (86400 * 30), "/");
-          }
+          setcookie("user_name", $_SESSION["name"], time() + (86400 * 30), "/");
 
           header("Location: ?command=home");
           return;
@@ -134,8 +125,12 @@ class SwipeController {
 
   public function addSong() {
     if (isset($_POST["songname"]) && isset($_POST["songid"]) && isset($_POST["artist"]) && isset($_POST["album"])) {
-      $this->db->query("INSERT INTO tracks (spotify_id, name) VALUES $1, $2", $_POST["songid"], $_POST["name"]);
-      $this->db->query("INSERT INTO user_tracks (user_id, track_id) VALUES $1, $2", $_SESSION["curuserid"], $_POST["songid"]);
+      $this->db->query("INSERT INTO tracks (spotify_id, name) VALUES ($1, $2)", $_POST["songid"], $_POST["songname"]);
+      $result = $this->db->query("select id from swipeify_users where email = $1 LIMIT 1;", $_SESSION["email"]);
+      if ($result) {
+        $_SESSION["curuserid"] = $result[0]["id"];
+      }
+      $this->db->query("INSERT INTO user_tracks (user_id, track_id) VALUES ($1, $2)", $_SESSION["curuserid"], $_POST["songid"]);
       echo "Your song has been added!";
     }
   }
